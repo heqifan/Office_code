@@ -51,6 +51,35 @@ def movefile(indir:str,keywords:list,outdir:str,option = 'cover'):  #->int
 
     return status
 
+# def Rename(indir:str,key:list,add:str):  #->int
+#     """
+#     Description:
+#     This is scripts is used to move file from a dir to the other dir
+#     Input：
+#     indir：原始数据所在的文件夹路径
+#     keywords: 进行区别的关键词
+#     outdir： 目标数据所在的文件夹路径
+#     option:  如果目标文件夹有同名数据的话，是覆盖还是跳过，默认是覆盖
+#     Output:  
+#     status： 1成功 0不成功
+#     Example:  movefile(r'E:\demo' ,['*.A' + str(year) + '*.hdf'],r'D:\result','continue')
+#     """
+#     if not os.path.exists(indir):       #判断原始文件路劲是否存在,如果不存在就直接退出
+#         print('The tardir is not exist:%s' % indir)
+#         status = 0
+#     else:
+#         inlist = glob.glob(indir + os.sep + key)   #获得文件夹下所需要的数据
+#         print(f'The amount of data that in the "{key}"  is{len(inlist)}')
+#         for oripath in inlist:
+#             print(f'Processing......"{oripath}"')
+#             outdata = indir + os.sep + add + str(os.path.basename(oripath).split('.')[:-1])   #获得目标文件夹下的数据的名称
+#             os.rename(src, outdata)
+#             print(f'"{oripath}"has been successfully transferred')
+#             shutil.move(oripath, outdata)
+#             print(f'"{oripath}"has been successfully transferred')
+#         status = 1
+
+#     return status
 
 def delfile(indir:str,keywords:list):  #->int
     '''
@@ -70,20 +99,20 @@ def delfile(indir:str,keywords:list):  #->int
         for key in keywords:
             dellist = glob.glob(indir + os.sep + key)
             print(f'The amount of data that in the "{key}" to be deleted is{len(dellist)}')
-            for delpath in dellist:
+            for delpath in dellist:  
                 os.remove(delpath)
                 print(f'"{delpath}"has been successfully deleted')
         status =1
     return status
             
 
-inpath = r'C:\Users\HYF\Downloads'
+inpath = r'F:\Integrated_analysis_data\Data\1Y\LAI_2003_2017_1y'
 
 outpath = r'E:\Yang\ET_data\AVHRR\ET_1982_1999'
 
-styear = 1982
+styear = 2003
 
-edyear = 1982
+edyear = 2017
 
 op = 'continue'
 
@@ -94,17 +123,17 @@ for year in range(styear,edyear+1):
     #keys = ['RNPP_' + str(year) + '.flt','RNPP_' + str(year) + '.hdr','RNPP_' + str(year) + '.png','RNPP_' + str(year) + '.prj','RNPP_' + str(year) + '.flt.aux.xml','RNPP_' + str(year) + '.flt.ovr']
     #keys = ['RGPP_' + str(year) + '.flt','RGPP_' + str(year) + '.hdr','RGPP_' + str(year) + '.png','RGPP_' + str(year) + '.prj','RGPP_' + str(year) + '.flt.aux.xml','RGPP_' + str(year) + '.flt.ovr']
     #keys = ['*_' + str(year) + '_' + '*.tif']
-    keys = ['*.A' + str(year) + '*.hdf']
+    keys = ['Sum*']
     #keys = ['A' + str(year) + '*.tfw','A' + str(year) + '*.xml','A' + str(year) + '*.tif','A' + str(year) + '*.ovr']
     #keys = ['GLASS*.tif','GLASS*.tfw','GLASS*.xml','GLASS*.ovr']
-    indir = inpath + os.sep + str(year)
+    indir = inpath + os.sep +str(year)
     #keys = ['GLASS*.hdf']
     #keys = ['Mask_Mask_*.tif','Mask_Mask_*.tfw','Mask_Mask_*.xml','Mask_Mask_*.cpg','Mask_Mask_*.dbf','*.Global.tif',
     #               '*_reproject.tif_reproject.tfw','*_reproject.tif_reproject.tif.*','*_reproject.tif_reproject.xml','*_reproject.tif_reproject.ovr']
     #keys = ['Mask_'+ str(year) + '.*']
-    outdir = outpath + os.sep + str(year)
-    result = movefile(inpath,keys,outdir,op)
-    #result = delfile(indir,keys)
+    # outdir = outpath + os.sep + str(year)
+    # result = movefile(inpath,keys,outdir,op)
+    result = delfile(indir,keys)
     print('-------完成--------' if result==1 else '-------输入文件夹不存在--------')
     #print(hdfs)
     
