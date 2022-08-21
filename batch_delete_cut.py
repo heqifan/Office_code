@@ -106,13 +106,13 @@ def delfile(indir:str,keywords:list):  #->int
     return status
             
 
-inpath = r'J:\Integrated_analysis_data\Data\1Y\W_2000_2017_1y'
+inpath = r'J:\Integrated_analysis_data\Data\LAI'
 
 outpath = r'E:\Yang\ET_data\AVHRR\ET_1982_1999'
 
-styear = 2000
+styear = 2002
 
-edyear = 2017
+edyear = 2018
 
 op = 'continue'
 
@@ -123,10 +123,10 @@ for year in range(styear,edyear+1):
     #keys = ['RNPP_' + str(year) + '.flt','RNPP_' + str(year) + '.hdr','RNPP_' + str(year) + '.png','RNPP_' + str(year) + '.prj','RNPP_' + str(year) + '.flt.aux.xml','RNPP_' + str(year) + '.flt.ovr']
     #keys = ['RGPP_' + str(year) + '.flt','RGPP_' + str(year) + '.hdr','RGPP_' + str(year) + '.png','RGPP_' + str(year) + '.prj','RGPP_' + str(year) + '.flt.aux.xml','RGPP_' + str(year) + '.flt.ovr']
     #keys = ['*_' + str(year) + '_' + '*.tif']
-    keys = ['*_reproject*']
+    keys = ['Ma*']
     #keys = ['A' + str(year) + '*.tfw','A' + str(year) + '*.xml','A' + str(year) + '*.tif','A' + str(year) + '*.ovr']
     #keys = ['GLASS*.tif','GLASS*.tfw','GLASS*.xml','GLASS*.ovr']
-    indir = inpath + os.sep +str(year)
+    indir = inpath + os.sep + 'MCD15A2_LAI_' + str(year)
     #keys = ['GLASS*.hdf']
     #keys = ['Mask_Mask_*.tif','Mask_Mask_*.tfw','Mask_Mask_*.xml','Mask_Mask_*.cpg','Mask_Mask_*.dbf','*.Global.tif',
     #               '*_reproject.tif_reproject.tfw','*_reproject.tif_reproject.tif.*','*_reproject.tif_reproject.xml','*_reproject.tif_reproject.ovr']
