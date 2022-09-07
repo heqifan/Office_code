@@ -106,17 +106,17 @@ def delfile(indir:str,keywords:list):  #->int
     return status
             
 
-inpath = r'D:\BaiduNetdiskDownload\Results'
+inpath = r'J:\Integrated_analysis_data\Data\1Y\W_1982_2018_1y'
 
-outpath = r'D:\BaiduNetdiskDownload\Results2'
+outpath = r'J:\Integrated_analysis_data\Data\1Y\W_1982_2018_1y'
 
-styear = 2002
+styear = 1982
 
 edyear = 2018
 
 op = 'continue'
 
-# for year in range(styear,edyear+1):
+for year in range(styear,edyear+1):
 #     # keys = ['npp_' + str(year) + '.tfw','npp_' + str(year) + '.tif.aux.xml','npp_' + str(year) + '.tif.xml']
 #     #keys = ['*.tfw', '*.xml', '*.tif','*.ovr']
 #     #keys = [str(year) + '_npp' + '.tif']
@@ -126,16 +126,16 @@ op = 'continue'
 #     keys = ['Ma*']
 #     #keys = ['A' + str(year) + '*.tfw','A' + str(year) + '*.xml','A' + str(year) + '*.tif','A' + str(year) + '*.ovr']
 #     #keys = ['GLASS*.tif','GLASS*.tfw','GLASS*.xml','GLASS*.ovr']
-#     indir = inpath + os.sep + 'MCD15A2_LAI_' + str(year)
+    indir = inpath + os.sep + str(year)
 #     #keys = ['GLASS*.hdf']
 #     #keys = ['Mask_Mask_*.tif','Mask_Mask_*.tfw','Mask_Mask_*.xml','Mask_Mask_*.cpg','Mask_Mask_*.dbf','*.Global.tif',
 #     #               '*_reproject.tif_reproject.tfw','*_reproject.tif_reproject.tif.*','*_reproject.tif_reproject.xml','*_reproject.tif_reproject.ovr']
-#     #keys = ['Mask_'+ str(year) + '.*']
+    keys = ['Mask_*','Project_*']
 #     # outdir = outpath + os.sep + str(year)
-#     result = movefile(inpath,keys,outdir,op)
-#     # result = delfile(indir,keys)
+    # result = movefile(inpath,keys,outdir,op)
+    result = delfile(indir,keys)
 #     print('-------完成--------' if result==1 else '-------输入文件夹不存在--------')
 #     #print(hdfs)
     
-keys = ['*(1)*']
-result = movefile(inpath,keys,outpath,op)
+# keys = ['Sum_*']
+# result = movefile(inpath,keys,outpath,op)
