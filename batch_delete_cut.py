@@ -106,13 +106,13 @@ def delfile(indir:str,keywords:list):  #->int
     return status
             
 
-inpath = r'J:\Integrated_analysis_data\Data\1Y\W_1982_2018_1y'
+inpath = r'E:\Integrated_analysis_data\Data\1Y\MODIS_2000_2017_1y_chinese'
 
-outpath = r'J:\Integrated_analysis_data\Data\1Y\W_1982_2018_1y'
+outpath = r'E:\Integrated_analysis_data\Data\1Y\W_1980_2020_1y_chinese'
 
-styear = 1982
+styear = 2000
 
-edyear = 2018
+edyear = 2017
 
 op = 'continue'
 
@@ -130,8 +130,8 @@ for year in range(styear,edyear+1):
 #     #keys = ['GLASS*.hdf']
 #     #keys = ['Mask_Mask_*.tif','Mask_Mask_*.tfw','Mask_Mask_*.xml','Mask_Mask_*.cpg','Mask_Mask_*.dbf','*.Global.tif',
 #     #               '*_reproject.tif_reproject.tfw','*_reproject.tif_reproject.tif.*','*_reproject.tif_reproject.xml','*_reproject.tif_reproject.ovr']
-    keys = ['Mask_*','Project_*']
-#     # outdir = outpath + os.sep + str(year)
+    keys = ['Mask*']
+    # outdir = outpath + os.sep + str(year)
     # result = movefile(inpath,keys,outdir,op)
     result = delfile(indir,keys)
 #     print('-------完成--------' if result==1 else '-------输入文件夹不存在--------')
